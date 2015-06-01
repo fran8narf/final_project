@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	        <meta charset="UTF-8">   
+	        <title>LoL API - Prueba</title>
+	    </head>
+	    <body>
+	    <h1>Summoners Ranked Stats</h1>
+	 	Input Summoner's name
+	 	<Input type="text" id="sumName">
+	 	<select id="select">
+		    <option value="SEASON3">Season 3</option>
+		    <option value="SEASON2014">Season 4</option>
+		    <option value="SEASON2015">Season 5</option>
+		</select>
+
+		<h1>Summoner's Data</h1>
+
+	 	<p>Summoner: <span id="sName"></span></p> 
+	 	<p>ID: <span id="sID"></span></p>
+	 	<p>Summoner Level: <span id="sLevel"></span></p>
+
+	 	<p>----------------------------------------------</p>
+
+	 	<h1>Ranked Stats</h1>
+	 	<h2>Streaks</h2>
+
+	 	<p>Doublekills: <span id="dKills"></span></p>
+	 	<p>Triplekills: <span id="tKills"></span></p>
+	 	<p>Quadrakills: <span id="qKills"></span></p>
+	 	<p>Pentakills: <span id="pKills"></span></p>
+	 	
+	 	<h2>Match Stats</h2>
+	 	<p>First Bloods: <span id="fBlood"></span></p>
+	 	<p>Gold Earned: <span id="gEarned"></span></p>
+	 	<p>Minions Killed: <span id="mKilled"></span></p>
+	 	<p>Destroyed Turrets: <span id="dTurrets"></span></p>
+
+	 	<h2>Champion Stats</h2>
+	 	<p>Damage Dealt: <span id="dDealt"></span></p>
+	 	<p>Damage Taken: <span id="dTaken"></span></p>
+	 	<p>Assists: <span id="assists"></span></p>
+	 	<p>Champions Killed: <span id="cKilled"></span></p>
+	 	<p>Deaths: <span id="deaths"></span></p>
+
+	 	<button id="send" onclick="lookForSummoner()">Search</button>
+
+		<script type="text/javascript" src="busquedas.js"></script>    
+	 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	    </body>
+	</html>
