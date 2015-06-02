@@ -1,4 +1,10 @@
+/*CAPITALIZE**/
+String.prototype.capitalize = function(){
+   return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
+ }
+
 function lookForSummoner() {
+	$("span").empty();
 	var summonerName = $("#sumName").val().toLowerCase();
 
 	$.ajax({
@@ -15,8 +21,9 @@ function lookForSummoner() {
 			$("#sLevel").text(summonerLevel);
 
 			getSummonerData(summonerID);
+			getActualDTStats(summonerID);
 		},
-		error: function(){alert("Error obteniendo los datos del servidor.")},
+		error: function(){alert("Error taking information from server.")},
 		dataType: "json"
 	});
 	
@@ -95,8 +102,66 @@ function getSummonerData(summonerID) {
 			$("#cKilled").text(totalChampsKilled);
 			$("#deaths").text(totalDeaths);
 		},
-		error: function() {alert("Error taking data")},
+		error: function() {alert("This player has no Ranked data.")},
 		dataType: "json"
 	});
 
+}
+
+function getActualDTStats(summonerID) {  //DT = Division/Tier stats
+	$.ajax({
+
+		url:"https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/"+summonerID+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		data: "",
+		success: function(resp) {
+			summonerName = $("#sumName").val().toLowerCase();
+			summonerNameCap = summonerName.capitalize();
+
+			actualTier = resp[summonerID][0].tier;
+			actualDivisionName = resp[summonerID][0].name;
+			queueType = resp[summonerID][0].queue;
+			
+			actualDivision = "";
+			actualLP = "";
+			wins = 0;
+			losses = 0;
+			hotStreak = false;
+			veteran = false;
+			freshBlood = false;
+
+			//console.log(resp[summonerID][0].entries[2].wins+"-"+resp[summonerID][0].entries[2].losses);
+			
+			for (var i = 0 ; i < resp[summonerID][0].entries.length; i++) {
+
+				if (resp[summonerID][0].entries[i].playerOrTeamName === summonerNameCap ) {
+					
+					actualDivision = resp[summonerID][0].entries[i].division
+					
+					actualLP = resp[summonerID][0].entries[i].leaguePoints
+					wins = resp[summonerID][0].entries[i].wins
+					losses = resp[summonerID][0].entries[i].losses
+					hotStreak = resp[summonerID][0].entries[i].isHotStreak
+					veteran = resp[summonerID][0].entries[i].isVeteran
+					freshBlood = resp[summonerID][0].entries[i].isFreshBlood
+					
+				}
+			}
+			
+			$("#tier").text(actualTier);
+			$("#division").text(actualDivision);
+
+			$("#queueType").text(queueType);
+			$("#LP").text(actualLP);
+			$("#wins").text(wins);
+			$("#losses").text(losses);
+			
+			$("#hotStreak").text(hotStreak);
+			$("#veteran").text(veteran);
+			$("#freshBlood").text(freshBlood);
+			
+		},
+		error: function() {alert("Error taking Tier/Division Data")},
+		dataType: "json" 		
+
+		});
 }
