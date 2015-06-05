@@ -26,8 +26,9 @@ function lookForSummoner() {
 		error: function(){alert("Error taking information from server.")},
 		dataType: "json"
 	});
-	
+	$(".summonerData").show();
 }
+
 
 function getSummonerData(summonerID) {
 	var selectedSeason = "";
@@ -115,7 +116,7 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 		data: "",
 		success: function(resp) {
 			summonerName = $("#sumName").val().toLowerCase();
-			summonerNameCap = summonerName.capitalize();
+			summonerNameCap = summonerName.replace(" ","");
 
 			actualTier = resp[summonerID][0].tier;
 			actualDivisionName = resp[summonerID][0].name;
@@ -133,7 +134,9 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 			
 			for (var i = 0 ; i < resp[summonerID][0].entries.length; i++) {
 
-				if (resp[summonerID][0].entries[i].playerOrTeamName === summonerNameCap ) {
+				/*console.log(resp[summonerID][0].entries[i].playerOrTeamName.toLowerCase === summonerNameCap);*/
+
+				if (resp[summonerID][0].entries[i].playerOrTeamName.toLowerCase().trim() === summonerNameCap.toLowerCase().trim()	 ) {
 					
 					actualDivision = resp[summonerID][0].entries[i].division
 					

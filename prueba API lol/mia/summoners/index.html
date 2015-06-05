@@ -5,6 +5,7 @@
 	        <title>LoL API - Prueba</title>
 	    </head>
 	    <body>
+
 	    <h1>Summoners Ranked Stats</h1>
 	 	Input Summoner's name
 	 	<Input type="text" id="sumName">
@@ -14,6 +15,9 @@
 		    <option value="SEASON2015">Season 5</option>
 		</select>
 
+			<button id="send" onclick="lookForSummoner()">Search</button>
+			
+<div class="summonerData" style="display:none">
 		<h1>Summoner's Current Data</h1>
 
 	 	<p>Summoner Name: <span id="sName"></span></p> 
@@ -21,6 +25,7 @@
 	 	<p>Summoner Level: <span id="sLevel"></span></p>
 	 	<p>Tier: <span id="tier"></span></p>
 	 	<p>Division: <span id="division"></span></p>
+	 	<p>Division name: <span id="divisionName"></span>
 	 	<p>Queue Type: <span id="queueType"></span></p>
 	 	<p>League Points: <span id="LP"></span></p>
 	 	<p>----------------------------------------------</p>
@@ -54,8 +59,9 @@
 	 	<p>Assists: <span id="assists"></span></p>
 	 	<p>Champions Killed: <span id="cKilled"></span></p>
 	 	<p>Deaths: <span id="deaths"></span></p>
+	<div>
 
-	 	<button id="send" onclick="lookForSummoner()">Search</button>
+	 
 
 		<script type="text/javascript" src="busquedas.js"></script>    
 	 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
