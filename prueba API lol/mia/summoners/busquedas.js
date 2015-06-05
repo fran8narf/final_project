@@ -1,11 +1,6 @@
-/*CAPITALIZE**/
-String.prototype.capitalize = function(){
-   return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
- }
-
 function lookForSummoner() {
 	$("span").empty();
-	var summonerName = $("#sumName").val().toLowerCase();
+	var summonerName = $("#sumName").val().toLowerCase().replace(" ", "");
 
 	$.ajax({
 		url:"https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/"+summonerName+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
@@ -48,23 +43,23 @@ function getSummonerData(summonerID) {
 		success: function(resp) {
 
 			/***Streaks***/
-			totalDouble = 0;
-			totalTriple = 0;
-			totalQuadra = 0;
-			totalPenta = 0;
+			var totalDouble = 0;
+			var totalTriple = 0;
+			var totalQuadra = 0;
+			var totalPenta = 0;
 
 			/***Match Stats***/
-			totalFB = 0;
-			totalGoldEarned = 0;
-			totalMinionsKilled = 0;
-			totalDestroyedTurrets = 0;
+			var totalFB = 0;
+			var totalGoldEarned = 0;
+			var totalMinionsKilled = 0;
+			var totalDestroyedTurrets = 0;
 
 			/***Champion Stats***/
-			totalDamageDealt = 0;
-			totalDamageTaken = 0;
-			totalAssists = 0;
-			totalChampsKilled = 0;
-			totalDeaths = 0;
+			var totalDamageDealt = 0;
+			var totalDamageTaken = 0;
+			var totalAssists = 0;
+			var totalChampsKilled = 0;
+			var totalDeaths = 0;
 
 			for (var i = 0; i < resp.champions.length; i++) {
 
@@ -115,28 +110,26 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 		url:"https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/"+summonerID+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
 		data: "",
 		success: function(resp) {
-			summonerName = $("#sumName").val().toLowerCase();
-			summonerNameCap = summonerName.replace(" ","");
+			summonerName = $("#sumName").val().toLowerCase().trim();
+			summonerNameNoSpaces = summonerName.replace(" ", "");
 
-			actualTier = resp[summonerID][0].tier;
-			actualDivisionName = resp[summonerID][0].name;
-			queueType = resp[summonerID][0].queue;
+			var actualTier = resp[summonerID][0].tier;
+			var actualDivisionName = resp[summonerID][0].name;
+			var queueType = resp[summonerID][0].queue;
 			
-			actualDivision = "";
-			actualLP = "";
-			wins = 0;
-			losses = 0;
-			hotStreak = false;
-			veteran = false;
-			freshBlood = false;
+			var actualDivision = "";
+			var actualLP = "";
+			var wins = 0;
+			var losses = 0;
+			var hotStreak = false;
+			var veteran = false;
+			var freshBlood = false;
 
-			//console.log(resp[summonerID][0].entries[2].wins+"-"+resp[summonerID][0].entries[2].losses);
+			var arraySummonersLength = resp[summonerID][0].entries.length;
 			
-			for (var i = 0 ; i < resp[summonerID][0].entries.length; i++) {
+			for (var i = 0 ; i < arraySummonersLength; i++) {
 
-				/*console.log(resp[summonerID][0].entries[i].playerOrTeamName.toLowerCase === summonerNameCap);*/
-
-				if (resp[summonerID][0].entries[i].playerOrTeamName.toLowerCase().trim() === summonerNameCap.toLowerCase().trim()	 ) {
+				if (resp[summonerID][0].entries[i].playerOrTeamName.toLowerCase().trim().replace(" ", "") === summonerNameNoSpaces ) {
 					
 					actualDivision = resp[summonerID][0].entries[i].division
 					
