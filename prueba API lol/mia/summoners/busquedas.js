@@ -115,6 +115,8 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 
 			var actualTier = resp[summonerID][0].tier;
 			var actualDivisionName = resp[summonerID][0].name;
+			console.log(actualDivisionName);
+
 			var queueType = resp[summonerID][0].queue;
 			
 			var actualDivision = "";
@@ -145,7 +147,7 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 			
 			$("#tier").text(actualTier);
 			$("#division").text(actualDivision);
-
+			$("#divisionName").text(" - "+actualDivisionName);
 			$("#queueType").text(queueType);
 			$("#LP").text(actualLP);
 			$("#wins").text(wins);
