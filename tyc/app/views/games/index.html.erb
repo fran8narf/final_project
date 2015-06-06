@@ -1,0 +1,6 @@
+<h1>TYC - INDEX</h1>
+
+<% @games.each do |game| %>
+	<%= link_to image_tag(game.game_img, :id=>'game_logo'), game %>
+<% end %>
+
