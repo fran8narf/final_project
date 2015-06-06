@@ -1,6 +1,25 @@
-<h1>TYC - INDEX</h1>
 
-<% @games.each do |game| %>
-	<%= link_to image_tag(game.game_img, :id=>'game_logo'), game %>
-<% end %>
+<header class="container fullw">
+	<div class="row">
+		<div class="col-md-10">
+			<h1 class="logo">TakeYourChance!</h1>
+		</div>
 
+		<div class="btn-group col-md-2 lr-buttons" role="group" aria-label="...">
+		  <button type="button" class="btn btn-default">Login</button>
+		  <button type="button" class="btn btn-default">register</button>
+		</div>
+
+	</div>
+</header>
+
+
+<div class="container games_container">
+	<div class="row">
+			<div class="col-md-12">
+			<% @games.each do |game| %>
+				<%= link_to image_tag(game.game_img, :id=>'game_logo'), game %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -2,3 +2,50 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+body {
+	background-color: #FFF4D4;
+}
+
+.logo {
+	font-weight: bolder;
+	text-align: center;
+	color: #5F70B2;
+	text-shadow: 0px 0px 1px white,
+				 0px 0px 5px white,
+				 0px 0px 7px white,
+				 0px 0px 10px white;
+}
+
+.fullw {
+	margin: 0 auto;
+    width: 100%;
+    background-color: #B2A171;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.lr-buttons {
+	margin-top: 1em;
+}
+
+.lr-buttons button {
+	background-color: #FFEDBB;
+	border: 2px solid;
+}
+
+
+#game_logo {
+	height: 10em;
+}
+
+.games_container {
+	background-color: #BBC9FF;
+	margin: 0 auto;
+    width: 100%;
+
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
