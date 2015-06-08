@@ -19,10 +19,14 @@ body {
 .fullw {
 	margin: 0 auto;
     width: 100%;
-    background-color: #B2A171;
+}
+
+.indexContainerBorder {
+	background-color: #B2A171;
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .lr-buttons {
@@ -44,8 +48,37 @@ body {
 	margin: 0 auto;
     width: 100%;
 
-    border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
+}
+
+.lolsearch {
+	text-align: center;
+}
+
+.currentData {
+	border: 2px solid black;
+	width: 40%;
+	margin-top: 2em;
+	float: left;
+	margin-left: 6em;
+	background-color: #BBC9FF;
+}
+
+.currentDataTitle {
+	text-align: center;
+}
+
+.seasonData {
+	border: 2px solid black;
+	width: 40%;
+	margin-top: 2em;
+	float: left;
+	margin-left: 5em;
+	background-color: #BBC9FF;
+}
+
+.seasonDataTitle {
+	text-align: center;
 }

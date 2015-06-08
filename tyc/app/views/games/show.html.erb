@@ -1,1 +1,36 @@
-<h1>Showing search page of <%= @game.game_name %></h1>
+<div class="container fullw">
+	<div class="row">
+		<div class="col-md-12">	
+			<h1 class="lolsearch">Look for <%= @game.game_name %> players Data</h1>
+				<%= @search %>
+		</div>
+	</div>
+</div>
+
+<div class="currentData">
+	
+	
+			<h3 class="currentDataTitle">Current Summoner Data</h3>
+				<div class="dataValues">
+					<p>Summoner Name: <span id="sName"></span></p> 
+				 	<p style="display:none">ID: <span id="sID"></span></p>
+				 	<p>Summoner Level: <span id="sLevel"></span></p>
+
+				 	<p>Tier: <span id="tier"> </span> <span id="division"> </span> <span id="divisionName"> - </span></p>
+				 	<p>Queue Type: <span id="queueType"></span></p>
+				 	<p>League Points: <span id="LP"></span></p>
+
+				 	<p>Wins: <span id="wins"></span></p>
+				 	<p>Losses: <span id="losses"></span></p>
+
+				 	<p>Hot Streak: <span id="hotStreak"></span></p>
+				 	<p>Veteran Player: <span id="veteran"></span></p>
+				 	<p>Recently playing rankeds: <span id="freshBlood"></span></p>
+			 	</div>
+</div>
+
+<div class="seasonData">
+
+	<h3 class="seasonDataTitle">Selected Season Data</h3>
+		
+</div>
