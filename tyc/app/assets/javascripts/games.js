@@ -23,8 +23,8 @@ function lookForSummoner() {
 		error: function(){alert("Error taking information from server.")},
 		dataType: "json"
 	});
-	$(".currentDataValues").show();
-	$(".seasonDataValues").show();
+	$(".currentData").show();
+	$(".seasonData").show().height(360);
 }
 
 
