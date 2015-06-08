@@ -56,9 +56,12 @@ body {
 .lolsearch {
 	text-align: center;
 }
-
+#searchText {
+	display: show;
+}
 .currentData {
 	border: 2px solid black;
+	border-radius: 5px;
 	width: 40%;
 	margin-top: 2em;
 	float: left;
@@ -69,9 +72,12 @@ body {
 .currentDataTitle {
 	text-align: center;
 }
-
+.currentDataValues {
+	margin-left: 2em;
+}
 .seasonData {
 	border: 2px solid black;
+	border-radius: 5px;
 	width: 40%;
 	margin-top: 2em;
 	float: left;
@@ -81,4 +87,8 @@ body {
 
 .seasonDataTitle {
 	text-align: center;
+}
+
+.seasonDataValues {
+	margin-left: 2em;
 }

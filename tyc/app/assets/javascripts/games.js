@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 function lookForSummoner() {
-	$("span").empty();
+
 	var summonerName = $("#sumName").val().toLowerCase().replace(" ", "");
 
 	$.ajax({
@@ -23,21 +23,13 @@ function lookForSummoner() {
 		error: function(){alert("Error taking information from server.")},
 		dataType: "json"
 	});
-	$(".summonerData").show();
+	$(".currentDataValues").show();
+	$(".seasonDataValues").show();
 }
 
 
 function getSummonerData(summonerID) {
-	var selectedSeason = "";
-	if ($("#select").val() === "SEASON3") {
-		selectedSeason = "SEASON3";
-	}
-	else if ($("#select").val() === "SEASON2014") {
-		selectedSeason = "SEASON2014";
-	}
-	else if($("#select").val() === "SEASON2015"){
-		selectedSeason = "SEASON2015";
-	}
+	var selectedSeason = $("#select").val();
 
 	$.ajax({
 		url:"https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/"+summonerID+"/ranked?season="+selectedSeason+"&api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
