@@ -1,0 +1,28 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.signup-form {
+	border: 2px solid;
+	border-radius: 5px;
+}
+
+.signuptitle {
+	margin-left: 41em;
+}
+
+.user-game-data {
+	float: left;
+	margin-left: 5em;
+}
+
+.user-data-login {
+	float: left;
+	margin-left: 31em;
+}
+
+.signup-button {
+	margin-top: 25em;
+	margin-left: 41em;
+}

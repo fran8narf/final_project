@@ -1,8 +1,9 @@
 
 
-<div class="container games_container">
+<div class="fullw games_container">
 	<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 logos-container">
+			<h1 class="slyg">Select your game</h1>
 			<% @games.each do |game| %>
 				<%= link_to image_tag(game.game_img, :id=>'game_logo'), game %>
 			<% end %>

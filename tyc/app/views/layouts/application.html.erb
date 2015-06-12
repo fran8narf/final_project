@@ -9,15 +9,27 @@
 </head>
 <body>
 
-<header class="container fullw indexContainerBorder">
+<header class="indexContainerBorder">
 	<div class="row">
 		<div class="col-md-10">
 			<h1 class="logo">TakeYourChance!</h1>
 		</div>
 
 		<div class="btn-group col-md-2 lr-buttons" role="group" aria-label="...">
-		  <button type="button" class="btn btn-default">Login</button>
-		  <button type="button" class="btn btn-default">register</button>
+
+			<% if current_user %>
+          		
+            <button type="button" class="btn btn-default"><span id="username"><%= current_user.user_name %></span></button>
+            <button type="button" class="btn btn-default"><%= link_to "Log out", logout_path, method: "delete" %></button>
+
+        	<% else %>
+        	    <ul>
+            		<button type="button" class="btn btn-default"><%= link_to "Log in", login_path %></button>
+            		<button type="button" class="btn btn-default"><%= link_to "Sign up", signup_path %></button>
+          		</ul>
+        	<% end %>
+		  <%#= button_to "Login", class: "btn btn-default" %>
+		  <!--<button type="button" class="btn btn-default">register</button>-->
 		</div>
 
 	</div>

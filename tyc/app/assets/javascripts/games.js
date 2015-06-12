@@ -24,7 +24,7 @@ function lookForSummoner() {
 		dataType: "json"
 	});
 	$(".currentData").show();
-	$(".seasonData").show().height(360);
+	$(".seasonData").show().height(357);
 }
 
 
