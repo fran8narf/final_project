@@ -3,3 +3,4 @@ Game.create game_name: "League of Legends", game_img: "http://2.bp.blogspot.com/
 Game.create game_name: "Dota 2", game_img: "http://img2.wikia.nocookie.net/__cb20110914005751/defenseoftheancients/images/6/64/Dota_2_Logo_only.png"
 
 User.create f_name: "Fran", l_name: "Oner", user_name: "NarfOner", email: "narfoner@gmail.com", age: "24", dota_rol_pref: "Offlaner", lol_rol_pref: "AD Carry", dota_name: "NarfOner", lol_name: "Narfoner", password: "123456", role: 'admin'
+User.create f_name: "Danié", l_name: "MB", user_name: "Stromcer", email: "stromcer@gmail.com", age: "23", dota_rol_pref: "Support", dota_name: "Stromcer", password: "123456", role: "user"

@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
   	redirect_to '/' unless current_user.admin?
   end
 
+  def require_user
+    redirect_to '/' unless current_user.user?
+  end
+
+  def require_general_user
+    if !current_user
+      redirect_to '/'
+    end
+  end
+
 end

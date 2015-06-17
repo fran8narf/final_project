@@ -1,0 +1,16 @@
+<div class="img-selectBar">
+	<img src="../images/summonerstats.png" onclick='searchSummonerBar()'>
+	<img src="../images/recruit.png" onclick="recruitSummonerBar()">
+</div>
+
+<div class='searchBar' style="display: none">
+	<span id='searchText'>Input Summoner's name</span>
+		<Input type='text' id='sumName'>
+			<select id='select'>
+				<option value='SEASON3'>Season 3</option>
+				<option value='SEASON2014'>Season 4</option>
+				<option value='SEASON2015'>Season 5</option>
+			</select>
+		<button id='send' onclick='lookForSummoner()'>Search</button>
+</div>
+

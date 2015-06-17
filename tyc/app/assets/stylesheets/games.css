@@ -17,15 +17,18 @@ body {
 	text-align: center;
 } 
 .logo {
+
 	font-weight: bolder;
-	text-align: center;
+	margin-left: 14.5em;
 	color: #5F70B2;
 	text-shadow: 0px 0px 1px white,
 				 0px 0px 5px white,
 				 0px 0px 7px white,
 				 0px 0px 10px white;
 }
-
+.logo a {
+	text-decoration: none;
+}
 .fullw {
 
 	margin: 0 auto;
@@ -52,13 +55,16 @@ body {
 
 #game_logo {
 	height: 10em;
+	margin-left: 18em;
 }
 
 .games_container {
 	background-color: #BBC9FF;
 	margin: 0 auto;
     width: 100%;
-   /* border-bottom: 2px solid black;
+    
+
+    /* border-bottom: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;*/
 }
@@ -69,6 +75,7 @@ body {
 #searchText {
 	display: show;
 }
+
 .currentData {
 	border: 2px solid black;
 	border-radius: 5px;
@@ -118,4 +125,21 @@ body {
 	margin-left: 2em;
 	display: block;
 	
+}
+
+.footer {
+	height: 30px;
+	background-color: #B2A171;
+	margin-top: 32em;
+}
+
+.main_footer {
+	height: 30px;
+	background-color: #B2A171;
+	margin-top: 23.9em;
+}
+
+.img-selectBar {
+	margin-top: 9em; 
+	margin-left: 27.5em;
 }

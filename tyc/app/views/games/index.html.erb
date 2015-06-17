@@ -5,8 +5,10 @@
 			<div class="col-md-12 logos-container">
 			<h1 class="slyg">Select your game</h1>
 			<% @games.each do |game| %>
-				<%= link_to image_tag(game.game_img, :id=>'game_logo'), game %>
+				<%= link_to image_tag(game.game_img, :id=>'game_logo'), game_path(game) %>
 			<% end %>
 		</div>
 	</div>
 </div>
+
+<footer class="main_footer"></footer>
