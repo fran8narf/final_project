@@ -4,9 +4,21 @@
 </div>
 
 <div class='searchBar' style="display: none">
+	<div class="container fullw">
+	<div class="row">
+		<div class="col-md-12">	
+			<h1 class="lolsearch">Look for <%= @game.game_name %> players Data</h1>
+				<%= @search %>
+		</div>
+	</div>
+</div>
 	<span id='searchText'>Input Summoner's name</span>
-		<Input type='text' id='sumName'>
-			<select id='select'>
+		<input type='text' id='sumName'>
+			<select id='selectServer'>
+				<option value='euw'>EUW</option>
+				<option value='na'>NA</option>
+			</select>
+			<select id='selectSeason'>
 				<option value='SEASON3'>Season 3</option>
 				<option value='SEASON2014'>Season 4</option>
 				<option value='SEASON2015'>Season 5</option>
@@ -14,3 +26,57 @@
 		<button id='send' onclick='lookForSummoner()'>Search</button>
 </div>
 
+<div class="recruitBar">
+	<input type="text" id="recruitPlayerBar"> 
+</div>
+
+
+<div class="currentData" style="display:none">
+	
+			<h3 class="currentDataTitle">Current Summoner Data</h3>
+				<div class="currentDataValues">
+					<p>Summoner Name: <span id="sName"></span></p> 
+				 	<p style="display:none">ID: <span id="sID"></span></p>
+				 	<p>Summoner Level: <span id="sLevel"></span></p>
+
+				 	<p>Tier: <span id="tier"> </span> <span id="division"> </span> <span id="divisionName"> - </span></p>
+				 	<p>Queue Type: <span id="queueType"></span></p>
+				 	<p>League Points: <span id="LP"></span></p>
+
+				 	<p>Wins: <span id="wins"></span></p>
+				 	<p>Losses: <span id="losses"></span></p>
+
+				 	<p>Hot Streak: <span id="hotStreak"></span></p>
+				 	<p>Veteran Player: <span id="veteran"></span></p>
+				 	<p>Recently playing rankeds: <span id="freshBlood"></span></p>
+			 	</div>
+</div>
+
+<div class="seasonData" style="display:none">
+	
+	<h3 class="seasonDataTitle">Selected Season Data</h3>
+		<div class="seasonDataValues">
+			<h3>Streaks</h3>
+			
+		 	<p>Doublekills: <span id="dKills"></span></p>
+		 	<p>Triplekills: <span id="tKills"></span></p>
+		 	<p>Quadrakills: <span id="qKills"></span></p>
+		 	<p>Pentakills: <span id="pKills"></span></p>
+		 	
+		 	<h3>Match Stats</h3>
+		 	<p>Gold Earned: <span id="gEarned"></span></p>
+		 	<p>Minions Killed: <span id="mKilled"></span></p>
+		 	<p>Destroyed Turrets: <span id="dTurrets"></span></p>
+
+		 	<h3>Champion Stats</h3>
+		 	<p>Damage Dealt: <span id="dDealt"></span></p>
+		 	<p>Damage Taken: <span id="dTaken"></span></p>
+		 	<p>Assists: <span id="assists"></span></p>
+		 	<p>Champions Killed: <span id="cKilled"></span></p>
+		 	<p>Deaths: <span id="deaths"></span></p>
+
+		</div>
+		
+</div>
+
+<footer class="footer"></footer>

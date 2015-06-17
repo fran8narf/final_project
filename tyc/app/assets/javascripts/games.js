@@ -1,17 +1,20 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
 function searchSummonerBar() {
-	$(.)
+	$(".img-selectBar").hide();
+	$(".searchBar").show();
 }
 
 
-function lookForSummoner() {
 
+function lookForSummoner() {
+	var selectedServer = $("#selectServer").val();	
 	var summonerName = $("#sumName").val().toLowerCase().replace(" ", "");
 
 	$.ajax({
-		url:"https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/"+summonerName+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		url:"https://"+selectedServer+".api.pvp.net/api/lol/"+selectedServer+"/v1.4/summoner/by-name/"+summonerName+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
 		data: "",
 		success: function(summoner) {
 			
@@ -35,10 +38,10 @@ function lookForSummoner() {
 
 
 function getSummonerData(summonerID) {
-	var selectedSeason = $("#select").val();
-
+	var selectedSeason = $("#selectSeason").val();
+	var selectedServer = $("#selectServer").val();
 	$.ajax({
-		url:"https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/"+summonerID+"/ranked?season="+selectedSeason+"&api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		url:"https://"+selectedServer+".api.pvp.net/api/lol/"+selectedServer+"/v1.3/stats/by-summoner/"+summonerID+"/ranked?season="+selectedSeason+"&api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
 		data: "",
 		success: function(resp) {
 
@@ -105,9 +108,10 @@ function getSummonerData(summonerID) {
 }
 
 function getActualDTStats(summonerID) {  //DT = Division/Tier stats
+	var selectedServer = $("#selectServer").val();
 	$.ajax({
 
-		url:"https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/"+summonerID+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		url:"https://"+selectedServer+".api.pvp.net/api/lol/"+selectedServer+"/v2.5/league/by-summoner/"+summonerID+"?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
 		data: "",
 		success: function(resp) {
 			summonerName = $("#sumName").val().toLowerCase().trim();
