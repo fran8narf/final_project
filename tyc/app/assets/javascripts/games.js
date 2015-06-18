@@ -5,8 +5,15 @@
 function searchSummonerBar() {
 	$(".img-selectBar").hide();
 	$(".searchBar").show();
+	$(".back-button").show();
 }
 
+function buttonBack() {
+	$(".img-selectBar").show();
+	$(".searchBar").hide();
+	$(".currentData").hide();
+	$(".seasonData").hide();
+}
 
 
 function lookForSummoner() {
