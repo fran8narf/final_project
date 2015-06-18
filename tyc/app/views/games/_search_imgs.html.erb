@@ -76,7 +76,45 @@
 </div>
 
 <div class="back-button" style="display:none">
-	<button onclick="buttonBack()">Back</button>
+	<button onclick="buttonBac<br>k()">Back</button>
 </div>
 
+<div class="searchPlayersForm" onclick="">
+	<span>Main Position</span>
+	
+	<select id="selectMainPosition">
+		<option value="default">Select position</option>
+		<option value="top">Top</option>
+		<option value="jungler">Jungler</option>
+		<option value="mid">Middle</option>
+		<option value="adc">AD Carry</option>
+		<option value="support">Support</option>
+	</select>
+	<br>
+	<!--<span>Time Played</span>--><input type="text" placeholder="Time Played"><br>
+	<span>Tier</span><select id="selectTier">
+		<option value="default">Select tier</option>
+		<option value="Bronze">Bronze</option>
+		<option value="Silver">Silver</option>
+		<option value="Gold">Gold</option>
+		<option value="Platinum">Platinum</option>
+		<option value="Diamond">Diamond</option>
+		<option value="challenger">challenger</option>
+	</select>
+	<span>Division</span><select id="selectDivision">
+		<option value="I">I</option>
+		<option value="II">II</option>
+		<option value="III">III</option>
+		<option value="IV">IV</option>
+		<option value="V">V</option>
+	</select><br>
+
+	KDA
+	<input type="text" size="2" placeholder="min"> to <input type="text" size="2" placeholder="max"><br>
+	<input type="text" placeholder="Normal Games"><br>
+	<input type="text" placeholder="Ranked Premade"><br>
+	<input type="text" placeholder="Ranked Solo"><br>
+
+	<button onclick="searchPlayers()">Search</button>
+</div>
 <footer class="footer"></footer>
