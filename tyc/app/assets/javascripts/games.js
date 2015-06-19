@@ -2,6 +2,30 @@
 // All this logic will automatically be available in application.js.
 
 
+/*var topChamps = ["Aatrox","Akali","Cassiopeia","Cho'Gath","Darius","Dr Mundo", "Fiora", "Fizz", "Galio", "Gangplank", "Garen", " Gnar", "Hecarim", 
+"Heimerdinger", "Irelia", "Jarvan IV", "Jax", "Jayce", "Jayce", "Kayle", "Kennen", "Lissandra", "Malphite", "Maokai", "Mordekaiser", "Nasus", "Olaf", 
+"Pantheon", "Poppy", "Quinn", "Renekton", "Rengar", "Riven", "Rumble", "Ryze", "Ryze", "Shen", "Shyvana", "Singed", "Sion", "Swain", "Teemo", "Trundle",
+"Tryndamere", "Vladimir", "Yorick", "Yasuo", "Wu-kong", "Volibear"];
+var junglerChamps = ["Aatrox", "Amumu", "Diana", "Elise", "Evelynn", "Fiddlesticks", "Gragas", "Hecarim", "Jarvan IV", "Jax", "Kha'zix", "Lee Sin", 
+"Malphite", "Maokai", "Master Yi", "Nautilus", "Nidalee", "Nocturne", "Nunu", "Olaf", "Pantheon", "Poppy", "Rammus", "Rek'sai", "Sejuani", "Shaco", 
+"Shyvana", "Sion", "Skarner", "Trundle", "Tryndamere", "Udyr", "Vi", "Zac", "Xin-zhao", "Wu-kong", "Warwick", "Volibear"];
+var midChamps = ["Ahri", "Akali", "Anivia", "Annie", "Azir", "Brand", "Cassiopeia", "Cho'Gath", "Diana", "Ekko", "Fizz", "Galio", "Heimerdinger", "Jayce", 
+"Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "Kog'Maw", "Le Blanc", "Lissandra", "Lux", "Malzahar", "Mordekaiser", "Nidalee", "Orianna", 
+"Ryze", "Swain", "Syndra", "Talon", "Teemo", "Twisted Fate", "Veigar", "Vel'Koz", "Viktor", "Vladimir", "Xerath", "Yasuo", "Zac", "Ziggs", "Zyra"];
+var adcChamps = ["Ashe", "Caitlyn", "Corki", "Draven", "Ezreal", "Graves", "Jinx", "Kalista", "Kog'Maw", "Lucian", "Miss Fortune", "Quinn", "Sivir", 
+"Tristana", "Twitch", "Urgot", "Varus", "Vayne"];
+var suppChamps = ["Alistar", "Annie", "Bard", "Blitzcrank", "Braum", "Galio", "Janna", "Karma", "Kayle", "Leona", "Lulu", "Lux", "Malphite", 
+"Morgana", "Nami", "Nautilus", "Sona", "Soraka", "Taric", "Thresh", "Zilean", "Zyra"];
+*/
+	var topChamps = [];
+	var junglerChamps = [];
+	var midChamps = [];
+	var adcChamps = [];
+	var suppChamps = [];
+
+	var championsKeys = [];
+	var championsIDS = [];
+
 function searchSummonerBar() {
 	$(".img-selectBar").hide();
 	$(".searchBar").show();
@@ -40,8 +64,9 @@ function lookForSummoner() {
 			summonerID = summoner[summonerName].id;
 			
 			$("#sName").text(sumName);
-			$("#sID").text(summonerID);
+			//$("#sID").text(summonerID);
 			$("#sLevel").text(summonerLevel);
+			console.log(summonerID);
 
 			getSummonerData(summonerID);
 			getActualDTStats(summonerID);
@@ -61,6 +86,8 @@ function getSummonerData(summonerID) {
 		url:"https://"+selectedServer+".api.pvp.net/api/lol/"+selectedServer+"/v1.3/stats/by-summoner/"+summonerID+"/ranked?season="+selectedSeason+"&api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
 		data: "",
 		success: function(resp) {
+
+			var championsIDs = []; //array with champion ID's to match with Champions API
 
 			/***Streaks***/
 			var totalDouble = 0;
@@ -83,6 +110,7 @@ function getSummonerData(summonerID) {
 
 			for (var i = 0; i < resp.champions.length; i++) {
 
+				championsIDs
 				totalDouble += resp.champions[i].stats.totalDoubleKills;
 				totalTriple += resp.champions[i].stats.totalTripleKills;
 				totalQuadra += resp.champions[i].stats.totalQuadraKills;
@@ -123,6 +151,44 @@ function getSummonerData(summonerID) {
 	});
 
 }
+
+function getChampionsKeys() {
+	$.ajax({
+
+		url: "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		data: "",
+		success: function(resp) {
+			var response = resp.data;
+				for (var championsKey in response) {
+					championsKeys.push(championsKey);
+				}
+		},
+		error: function() {alert("Error taking champions data!")},
+		dataType: "json"
+
+	});
+}
+
+function getChampionsIds() {
+	$.ajax({
+
+		url: "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?api_key=1046826c-4625-44ef-915c-c28c8978f1ae",
+		data: "",
+		success: function(resp) {
+			var response = resp.data;
+			var i = 0;
+			
+			//console.log(championsKeys[i]+" "+response[championsKeys[i]]+" "+response[championsKeys[i]].id);
+			
+			for(var championId in response){
+				championsIDS.push(response[championsKeys[i]].id);
+				i++
+			}
+			console.log(championsIDS);
+		}
+	});
+}
+
 
 function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 	var selectedServer = $("#selectServer").val();
@@ -199,3 +265,5 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 
 		});
 }
+
+

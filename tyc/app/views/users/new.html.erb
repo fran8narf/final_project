@@ -24,7 +24,7 @@
           <%= f.text_field :dota_rol_pref, :placeholder => "Dota2 Rol Preference" %><br><br>
 
           <%= f.text_field :lol_name, :placeholder => "LoL name" %><br><br>
-          <%= f.text_field :lol_rol_pref, :placeholder => "LoL Rol Preference" %><br><br>  
+          <%= select_tag(:lol_rol_pref, options_for_select([['Top', 'top'], ['Jungler', 'jungler'], ['Middle', 'mid'], ['AD Carry', 'adc'], ['Support', 'sup']])) %>
   </div>
 
          <div class="signup-button"><%= f.submit "Create an account"%></div>
