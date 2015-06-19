@@ -13,7 +13,17 @@ function buttonBack() {
 	$(".searchBar").hide();
 	$(".currentData").hide();
 	$(".seasonData").hide();
+	$(".searchPlayersForm").hide();
+	$(".back-button").hide();
 }
+
+function showRecruitSummonersForm() {
+	$(".searchPlayersForm").show();
+	$(".img-selectBar").hide();
+	$(".back-button").show();
+}
+
+
 
 
 function lookForSummoner() {

@@ -143,3 +143,13 @@ body {
 	margin-top: 9em; 
 	margin-left: 27.5em;
 }
+
+.searchPlayersForm {
+	border: 2px solid;
+	width: 20%;
+	margin: auto auto;
+}
+
+.contentForm {
+	margin: auto auto;
+}
