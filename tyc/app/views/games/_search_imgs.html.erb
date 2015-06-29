@@ -1,6 +1,8 @@
-<div class="img-selectBar">
-	<img src="../images/summonerstats.png" onclick='searchSummonerBar()'>
-	<img src="../images/recruit.png" onclick="showRecruitSummonersForm()">
+<div class="container">
+	<div class="row">
+			<img src="../images/summonerstats.png" onclick='searchSummonerBar()' class="col-xs-12 col-md-6">
+			<img src="../images/recruit.png" onclick="showRecruitSummonersForm()" class="col-xs-12 col-md-6">
+	</div>
 </div>
 
 <div class='searchBar' style="display: none">
@@ -119,7 +121,6 @@
 		<button onclick="showSearchPlayersForm()">Search</button>
 	</div>
 </div>
-<footer class="footer"></footer>
-
 <button onclick="getChampionsKeys()">Get Keys</button>
 <button onclick="getChampionsIds()">Get Ids</button>
+<footer class="footer"></footer>

@@ -267,3 +267,32 @@ function getActualDTStats(summonerID) {  //DT = Division/Tier stats
 }
 
 
+function logoutAction() {
+	console.log("logged out");
+}
+
+function loginForm() {
+	$(".frameSignUp").hide();
+	$(".indexMessage").hide();
+	$(".frameLogin").show();
+    $('html, body').animate({
+        scrollTop: $(".frameLogin").offset().top}, 1000);
+
+}
+
+function signupAction() {
+	$(".frameLogin").hide();
+	$(".indexMessage").hide();
+	$(".frameSignUp").show();
+    $('html, body').animate({
+        scrollTop: $(".frameSignUp").offset().top}, 1000);
+}
+
+function goUp() {
+
+	
+
+	$('body').animate({
+		scrollTop: (0)}, 1000);
+
+}

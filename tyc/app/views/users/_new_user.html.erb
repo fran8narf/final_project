@@ -1,0 +1,30 @@
+
+
+  <div class="signuptitle">
+     <h1>Sign up</h1>
+  </div>
+
+    <div class="user-data-login">
+     <h3>User data</h3>
+       <%= form_for(@user) do |f| %>
+          <%= f.text_field :f_name, :placeholder => "First Name(*)" %><br><br>
+          <%= f.text_field :l_name, :placeholder => "Last Name(*)" %><br><br>
+          <%= f.text_field :age, :placeholder => "Age(*)" %><br><br>
+          <%= f.text_field :user_name, :placeholder => "Username(*)" %><br><br>
+          <%= f.email_field :email, :placeholder => "Email(*)" %><br><br>
+          
+          <%= f.password_field :password, :placeholder => "Password(*)" %><br><br>
+    </div>
+
+    <div class="user-game-data">
+          <h3>Games Data</h3>
+
+          <%= f.text_field :dota_name, :placeholder => "Dota2 name" %><br><br>
+          <%= f.text_field :dota_rol_pref, :placeholder => "Dota2 Rol Preference" %><br><br>
+
+          <%= f.text_field :lol_name, :placeholder => "LoL name" %><br><br>
+          <%= select_tag(:lol_rol_pref, options_for_select([['Top', 'top'], ['Jungler', 'jungler'], ['Middle', 'mid'], ['AD Carry', 'adc'], ['Support', 'sup']])) %>
+  </div>
+
+         <div class="signup-button"><%= f.submit "Create an account"%></div>
+       <% end %>

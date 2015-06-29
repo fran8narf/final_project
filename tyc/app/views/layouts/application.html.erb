@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tyc</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		  <title>Tyc</title>
+			  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		  	  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Black+Ops+One" />
+		  	
+		  	  <%= stylesheet_link_tag    'application', media: 'all' %>
+		  
+		  	  <%= javascript_include_tag 'application' %>
+		  
+		  	  <%= csrf_meta_tags %>
+		
+	</head>
+		
+	<body>
 
-<header class="indexContainerBorder">
-	<div class="row">
-		<div class="col-md-10">
-			<h1 class="logo"><%= link_to "TakeYourChance!", root_path %></h1>
-		</div>
+	
+		<%= yield %>
+	
 
-		<div class="btn-group col-md-2 lr-buttons" role="group" aria-label="...">
-
-			<% if current_user %>
-          		
-            <button type="button" class="btn btn-default"><span id="username"><%= current_user.user_name %></span></button>
-            <button type="button" class="btn btn-default"><%= link_to "Log out", logout_path, method: "delete" %></button>
-
-        	<% else %>
-        	    <ul>
-            		<button type="button" class="btn btn-default"><%= link_to "Log in", login_path %></button>
-            		<button type="button" class="btn btn-default"><%= link_to "Sign up", signup_path %></button>
-          		</ul>
-        	<% end %>
-		  <%#= button_to "Login", class: "btn btn-default" %>
-		  <!--<button type="button" class="btn btn-default">register</button>-->
-		</div>
-
-	</div>
-</header>
-
-<%= yield %>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
 </html>

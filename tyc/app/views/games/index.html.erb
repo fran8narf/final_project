@@ -1,14 +1,83 @@
 
 
-<div class="fullw games_container">
+	<header class="indexHeader">
+		<h1 class="headerTextOne"><span class="redText">take you</span><span class="blueText">r chance</span></h1>
+		<h1 class="headerTextTwo"><span class="redText">to be t</span><span class="blueText">he best</span></h1>
+			
+			<div class="login-out-buttons">
+				<% if current_user %>
+	           	 	<button type="button" class="button-login-user"><span id="username"><%= current_user.user_name %></span></button>
+	            	<button type="button" class="logout-signup" onclick="logoutAction()"><%= link_to "Log out", logout_path, method: "delete" %></button>
+	        	<% else %>
+	            	<button type="button" class="button-login-user" onclick="loginForm()">Log in</button>
+	            	<button type="button" class="logout-signup" onclick="signupAction()">Sign up</button>
+	        	<% end %>
+			</div>
+	</header>
+
+<section class="container ">
 	<div class="row">
-			<div class="col-md-12 logos-container">
-			<h1 class="slyg">Select your game</h1>
-			<% @games.each do |game| %>
-				<%= link_to image_tag(game.game_img, :id=>'game_logo'), game_path(game) %>
-			<% end %>
+		<div class="indexMessage">
+			<h1>here we are, don't turn away, now we are the warriors that build this town, from dust...</h1>
 		</div>
 	</div>
-</div>
 
-<footer class="main_footer"></footer>
+	<div class="frameSignUp">
+	    <div class="signuptitle">
+		     <h1>Sign up</h1>
+	    </div>
+			<div class="form_full">
+				<div class="user-data-login">
+				   <h3>User data</h3>
+				       <%= form_for(@user) do |f| %>
+				          <%= f.text_field :f_name, :placeholder => "First Name(*)" %><br><br>
+				          <%= f.text_field :l_name, :placeholder => "Last Name(*)" %><br><br>
+				          <%= f.text_field :age, :placeholder => "Age(*)" %><br><br>
+				          <%= f.text_field :user_name, :placeholder => "Username(*)" %><br><br>
+				          <%= f.email_field :email, :placeholder => "Email(*)" %><br><br>
+				          <%= f.password_field :password, :placeholder => "Password(*)" %><br><br>
+				    </div>
+
+				    <div class="user-game-data">
+				          <h3>Games Data</h3>
+
+				          <%= f.text_field :dota_name, :placeholder => "Dota2 name" %><br><br>
+				          <%= f.text_field :dota_rol_pref, :placeholder => "Dota2 Rol Preference" %><br><br>
+
+				          <%= f.text_field :lol_name, :placeholder => "LoL name" %><br><br>
+				          <%= select_tag(:lol_rol_pref, options_for_select([['Top', 'top'], ['Jungler', 'jungler'], ['Middle', 'mid'], ['AD Carry', 'adc'], ['Support', 'sup']])) %>
+				    </div>
+
+				    <div class="signup-button"><%= f.submit "Create an account"%></div>
+				    <% end %>
+			</div>
+			<img src="../images/cm.png" class="goUp" onclick="goUp()">
+	</div>
+
+	<div class="frameLogin">
+		<h1 class="login-box-text">Log into your account</h1>
+			<div class="login-box">
+				<%= form_for(:session, url: login_path) do |f| %> 
+				  <%= f.email_field :email, :placeholder => "Email" %> <br><br>
+				  <%= f.password_field :password, :placeholder => "Password" %> <br><br>
+				  <%= f.submit "Log in" %>
+				<% end %>
+			</div>
+			<img src="../images/cm.png" class="goUp" onclick="goUp()">
+	</div>
+
+
+
+<section class="container selectGame">
+		<div class="row">
+			<% if current_user %>
+			<% @games.each_with_index do |game, i| %>
+			<div class="col-xs-12 col-md-6">
+				<%= link_to image_tag(game.game_img, :class=>'game_logo'+(i+1).to_s), game_path(game) %>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
+
+	</div>
+</section>

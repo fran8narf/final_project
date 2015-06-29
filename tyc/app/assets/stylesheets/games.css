@@ -2,154 +2,177 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+@font-face {
+	font-family: headerText;
+	src: url(../dream_MMA.ttf);
+}
+
 body {
-	background-color: #FFF4D4;
+	background-color: #000;
 	margin: 0;
-}
-
-#username {
-	font-weight: bold;
-}
-.row {
-	margin-right: 0;
-}
-.slyg {
-	text-align: center;
-} 
-.logo {
-
-	font-weight: bolder;
-	margin-left: 14.5em;
-	color: #5F70B2;
-	text-shadow: 0px 0px 1px white,
-				 0px 0px 5px white,
-				 0px 0px 7px white,
-				 0px 0px 10px white;
-}
-.logo a {
-	text-decoration: none;
-}
-.fullw {
-
-	margin: 0 auto;
-    width: 100% !important;
-}
-
-.indexContainerBorder {
-	background-color: #B2A171;
-    /*border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;*/
-}
-
-.lr-buttons {
-	margin-top: 1em;
-}
-
-.lr-buttons button {
-	background-color: #FFEDBB;
-	border: 2px solid;
-}
-
-
-#game_logo {
-	height: 10em;
-	margin-left: 18em;
-}
-
-.games_container {
-	background-color: #BBC9FF;
-	margin: 0 auto;
-    width: 100%;
-    
-
-    /* border-bottom: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;*/
-}
-
-.lolsearch {
-	margin-left: -2.5em;
-}
-#searchText {
-	display: show;
-}
-
-.currentData {
-	border: 2px solid black;
-	border-radius: 5px;
-	width: 40%;
-	margin-top: 2em;
-	float: left;
-	margin-left: 6em;
-	background-color: #BBC9FF;
-}
-
-.currentDataTitle {
-	text-align: center;
-}
-.currentDataValues {
-	margin-left: 2em;
-}
-
-.currentDataValues p {
-	font-weight: bold;
-}
-
-.currentDataValues p span {
-	text-style: none;
-}
-
-
-.seasonData {
-	border: 2px solid black;
-	border-radius: 5px;
-	width: 40%;
-	margin-top: 2em;
-	float: left;
-	margin-left: 5em;
-	background-color: #BBC9FF;
-	overflow: auto;
-}
-
-.searchBar {
-	padding-left: 29.5em;
-}
-
-.seasonDataTitle {
-	text-align: center;
-}
-
-.seasonDataValues {
-	margin-left: 2em;
-	display: block;
 	
 }
 
-.footer {
-	height: 30px;
-	background-color: #B2A171;
-	margin-top: 32em;
+.selectGame {
+	margin-top: 2em;
 }
 
-.main_footer {
-	height: 30px;
-	background-color: #B2A171;
-	margin-top: 23.9em;
+.indexHeader {
+	background-image: url(../images/tyc.jpg);
+	width: 100%;
+	height: 420px;
+
+	background-repeat: no-repeat;
+
+	background-attachment: fixed;
+	background-size: cover;
+
+	border-bottom: solid 3px #fff;
 }
 
-.img-selectBar {
-	margin-top: 9em; 
-	margin-left: 27.5em;
+.indexMessage {
+	color: white;
+	font-family: headerText;
+	text-align: center;
+	text-shadow: 0px 0px 10px rgba(212,175,55, 1);
 }
 
-.searchPlayersForm {
-	border: 2px solid;
-	width: 20%;
-	margin: auto auto;
+.indexMessage h1 {
+	margin-top: 1em;
+	font-size: 24px;
+	
 }
 
-.contentForm {
-	margin: auto auto;
+.frameSignUp {
+	background: url(../images/frame.png);
+	height: 500px;
+	margin-top: 5em;
+	background-repeat: no-repeat;
+	margin-left: 4.2em;
+	display: none;
 }
+
+.frameLogin {
+	background: url(../images/frame.png);
+	height: 500px;
+	margin-top: 5em;
+	background-repeat: no-repeat;
+	margin-left: 4.2em;
+	display: none;
+}
+
+
+.game_logo1 {
+	margin-left: 5em;
+}
+
+.game_logo2 {
+	margin-left: 9em;
+	
+}
+
+.headerTextOne, .headerTextTwo {
+	text-align: center;
+	margin-left: -1em;
+	font-family: headerText;
+	color: white;
+}
+
+.headerTextTwo {
+	font-size: 23.5px;
+	margin-right: 0.5em;
+	
+}
+
+.blueText {
+	text-shadow: 2px 2px  15px rgba(30, 144, 255, 1);
+}
+
+.redText {
+	text-shadow: 0px 0px 10px rgba(255, 0, 0, 1);
+}
+
+.login-out-buttons {
+	margin-top: -6.3em;
+	margin-left: 80em;
+
+}
+
+.button-login-user, .logout-signup{
+
+}
+a {
+	color: #000;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: none;
+}
+
+.button-login-user, .logout-signup {
+	color: #000;
+	font-weight: bold;
+	padding:.4em;
+	padding-left: .6em;
+	padding-right: .6em;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 3px;
+}
+
+.signuptitle {
+	margin-left: 32.1em;
+	color: #FFF;
+}
+
+ .user-game-data {
+ 	margin-left: 45em;
+ 	margin-top: -23.5em; 	
+ }
+
+ .user-data-login {
+ 	margin-left: 15em;
+ }
+
+ .signup-button {
+ 	margin-left: 31em;
+ 	margin-top:  7em;
+ }
+
+ .login-box-text {
+ 	color: #FFF;
+ 	margin-left: 9.5em;
+ }
+
+ .login-box {
+ 	margin-left: 30.5em;
+ }
+
+ .api-error {
+ 	font-family: headerText;
+ 	margin-left: 12.5em;
+ 	color: #FFF;
+ }
+
+.imagesApiError {
+	margin-left: 42em;
+}
+ .ayeSiiir {
+ 	float: left;
+
+ }
+
+ .puckyou {
+ 	float: left;
+ 	margin-top: 25em;
+ }
+
+ .sadLycan {
+
+ 	margin-left: 13em;	
+ 	margin-top: 19em;
+ }
+
+ .goUp {
+ 	margin-left: 69em;
+ }
